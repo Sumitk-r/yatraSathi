@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
         folder: 'wanderlust_DEV',
-        allowerdFormat: ["png", "jpg", "jpeg"],
+        allowerdFormats: ["png", "jpg", "jpeg"],
     },
 });
 
