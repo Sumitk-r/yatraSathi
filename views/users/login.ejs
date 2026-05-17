@@ -1,0 +1,162 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    .login-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 500px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        padding: 50px 40px;
+    }
+
+    .login-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .login-header h1 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .login-header p {
+        color: #717171;
+        font-size: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #ff385c;
+        box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.1);
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #ff385c;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 25px;
+    }
+
+    .login-btn:hover {
+        background-color: #e60023;
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        color: #717171;
+    }
+
+    .signup-link a {
+        color: #ff385c;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="login-header">
+            <h1>Welcome Back</h1>
+            <p>Log in to your Wanderlust account</p>
+        </div>
+
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+
+            <div class="form-group">
+
+                <label for="username">Username</label>
+
+                <input
+                    name="username"
+                    id="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    class="form-control"
+                    required
+                />
+
+                <div class="valid-feedback">
+                    Looks Great!
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    class="form-control"
+                    required
+                />
+
+                <div class="valid-feedback">
+                    Looks Great!
+                </div>
+
+            </div>
+
+            <button type="submit" class="login-btn">
+                Log In
+            </button>
+
+        </form>
+
+        <div class="signup-link">
+            Don't have an account?
+            <a href="/signup">Sign Up</a>
+        </div>
+
+    </div>
+
+</div>
