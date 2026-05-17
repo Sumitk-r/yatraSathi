@@ -1,9 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+    require('dotenv').config();
+}
 
-const port = process.env.PORT || 8080;
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
 const express = require("express");
 const app = express();
 
@@ -31,18 +29,7 @@ const userRouter = require("./routes/user.js");
 
 
 // DATABASE URL
-
-const dbUrl =
-  "url";
-
-
-
-// MONGOOSE CONNECTION
-
-async function main() {
-  await mongoose.connect(dbUrl);
-}
-
+const dbUrl = process.env.ATLASDB_URL;
 main()
   .then(() => {
     console.log("Connected to DB");
@@ -53,6 +40,9 @@ main()
 
 
 
+async function main() {
+  await mongoose.connect(dbUrl);
+}
 // VIEW ENGINE
 
 app.engine("ejs", ejsMate);
@@ -170,11 +160,9 @@ app.use("/", userRouter);
 
 
 // 404 HANDLER
-
-app.use((req, res, next) => {
-  next(new ExpressError(404, "Page not found"));
+app.all("*", (req, res, next) => {
+    next(new ExpressError(404, "Page not found"));
 });
-
 
 
 // ERROR HANDLER
@@ -188,7 +176,7 @@ app.use((err, req, res, next) => {
 
 
 
-// SERVER
+// SERVER start
 
 app.listen(8080, () => {
   console.log("App is listening on port 8080");
