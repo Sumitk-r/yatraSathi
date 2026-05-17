@@ -205,11 +205,7 @@ const Listing = require("../models/listing.js");
 
 
 // Paste your FULL Atlas URL below
-
-const dbUrl = "mongodb+srv://sumitdear:uiopp9000@cluster0.8xk0lpe.mongodb.net/wanderlust?retryWrites=true&w=majority&appName=Cluster0";
-
-
-
+const dbUrl = process.env.ATLASDB_URL;
 async function main() {
 
     await mongoose.connect(dbUrl);
