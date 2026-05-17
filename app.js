@@ -1,6 +1,9 @@
 
-require("dotenv").config();
+const port = process.env.PORT || 8080;
 
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
 const express = require("express");
 const app = express();
 
@@ -30,7 +33,7 @@ const userRouter = require("./routes/user.js");
 // DATABASE URL
 
 const dbUrl =
-  "mongodb+srv://sumitdear:uiopp9000@cluster0.8xk0lpe.mongodb.net/wanderlust?retryWrites=true&w=majority&appName=Cluster0";
+  "url";
 
 
 
